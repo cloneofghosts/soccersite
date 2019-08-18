@@ -1,6 +1,6 @@
 from django.db import models
 from django.template.defaultfilters import slugify
-from tinymce import models as tinymce_models
+from tinymce import HTMLField
 
 # Create your models here.
 class League(models.Model):
@@ -47,7 +47,7 @@ class Article(models.Model):
     slug = models.SlugField(editable=False)
     posted = models.DateTimeField()
     tags = models.ManyToManyField(Tag)
-    text = tinymce_models.HTMLField()
+    text = HTMLField('Content')
     def __str__(self):
         return self.title
     def save(self, *args, **kwargs):

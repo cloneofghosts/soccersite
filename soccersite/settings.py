@@ -120,9 +120,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-TINYMCE_JS_ROOT = '/media/tiny_mce/'
-TINYMCE_JS_URL = os.path.join(STATIC_URL, "tiny_mce/tiny_mce_src.js")
+
 TINYMCE_DEFAULT_CONFIG = {
-    'plugins': "table,spellchecker,paste,searchreplace,autolink,advlist,contextmenu,insertdatetime,media,wordcount",
-    'theme': "advanced",
+    'selector': 'textarea',
+    'theme': 'modern',
+    'plugins': 'link image preview codesample contextmenu table code advlist textcolor colorpicker autolink spellchecker wordcount '
+                'searchreplace paste media insertdatetime hr',
+    'toolbar1': 'formatselect forecolor | bold italic underline | alignleft aligncenter alignright alignjustify '
+               '| bullist numlist | outdent indent | insertdatetime table hr | link image media | codesample | preview code | spellchecker searchreplace paste',
+    'contextmenu': 'formats | link image | spellchecker',
+    'menubar': False,
+    'inline': False,
+    'statusbar': True,
+    'width': 'auto',
+    'height': 360,
 }
+TINYMCE_SPELLCHECKER = True
