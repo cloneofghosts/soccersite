@@ -1,6 +1,11 @@
 from django.contrib import admin
+from .models import League, Division, Team, Tag, Player, Article, Schedule, Statistic
 
-from .models import League, Division, Team, Tags, Player, News, Schedule
+# Inlines
+class StatisticInline(admin.TabularInline):
+    model = Statistic
+    extra = 0
+    autocomplete_fields = ['player']
 
 # Change Admin List Display
 class DivisionAdmin(admin.ModelAdmin):
@@ -22,7 +27,7 @@ class PlayerAdmin(admin.ModelAdmin):
     search_fields = ['first_name', 'last_name', 'team']
     autocomplete_fields = ['team']
 
-class NewsAdmin(admin.ModelAdmin):
+class ArticleAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'posted', 'get_tags')
     list_filter = ['posted']
     search_fields = ['title']
@@ -47,16 +52,24 @@ class ScheduleAdmin(admin.ModelAdmin):
         ('Team information', {'fields': ['home_team', 'home_score', 'away_team', 'away_score'], 'classes': ['collapseable']}),
         ('Game Status',      {'fields': ['status', 'playoff']}),
     ]
+    inlines = [ StatisticInline ]
     autocomplete_fields = ['home_team', 'away_team']
+    search_fields = ['home_team', 'away_team']
 
-class TagsAdmin(admin.ModelAdmin):
+class TagAdmin(admin.ModelAdmin):
     search_fields = ['tag_name']
+
+class StatisticAdmin(admin.ModelAdmin):
+    list_display = ('game', 'player', 'goals', 'yellow_cards', 'red_cards')
+    list_filter = ['game', 'player']
+    autocomplete_fields = ['player', 'game']
 
 # Register your models here.
 admin.site.register(League, LeagueAdmin)
 admin.site.register(Division, DivisionAdmin)
 admin.site.register(Team, TeamAdmin)
-admin.site.register(Tags, TagsAdmin)
+admin.site.register(Tag, TagAdmin)
 admin.site.register(Player, PlayerAdmin)
-admin.site.register(News, NewsAdmin)
+admin.site.register(Article, ArticleAdmin)
 admin.site.register(Schedule, ScheduleAdmin)
+admin.site.register(Statistic, StatisticAdmin)

@@ -1,5 +1,6 @@
 from django.db import models
 from django.template.defaultfilters import slugify
+from tinymce import models as tinymce_models
 
 # Create your models here.
 class League(models.Model):
@@ -8,9 +9,7 @@ class League(models.Model):
     def __str__(self):
         return self.league_name
     def save(self, *args, **kwargs):
-        if not self.id:
-            # Newly created object, so set slug
-            self.slug = slugify(self.league_name)
+        self.slug = slugify(self.league_name)
 
         super(League, self).save(*args, **kwargs)
 
@@ -38,25 +37,23 @@ class Player(models.Model):
     def __str__(self):
         return self.first_name + ' ' + self.last_name
 
-class Tags(models.Model):
+class Tag(models.Model):
     tag_name = models.CharField(max_length=50)
     def __str__(self):
         return self.tag_name
 
-class News(models.Model):
+class Article(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(editable=False)
     posted = models.DateTimeField()
-    tags = models.ManyToManyField(Tags)
-    text = models.TextField()
+    tags = models.ManyToManyField(Tag)
+    text = tinymce_models.HTMLField()
     def __str__(self):
         return self.title
     def save(self, *args, **kwargs):
-        if not self.id:
-            # Newly created object, so set slug
-            self.slug = slugify(self.title)
+        self.slug = slugify(self.title)
 
-        super(News, self).save(*args, **kwargs)
+        super(Article, self).save(*args, **kwargs)
 
 class Schedule(models.Model):
     # Options for Game Status
@@ -98,3 +95,13 @@ class Schedule(models.Model):
             self.slug = slugify(slug_str)
 
         super(Schedule, self).save(*args, **kwargs)
+
+class Statistic(models.Model):
+    game = models.ForeignKey(Schedule, on_delete=models.DO_NOTHING)
+    player = models.ForeignKey(Player, on_delete=models.DO_NOTHING)
+    goals = models.PositiveSmallIntegerField()
+    yellow_cards = models.PositiveSmallIntegerField()
+    red_cards = models.PositiveSmallIntegerField()
+    def __str__(self):
+        self_str = "%s %s %s %s" % (self.game, ' - ', self.player, 'Statistic')
+        return self_str
