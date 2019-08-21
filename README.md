@@ -4,4 +4,5 @@ A "port" of the LastEver project but using Django and Python. Front end will be 
 
 ## Added Modules
 <a href="http://romanvm.github.io/django-tinymce4-lite/">django-tinymce4-lite</a><br />
-<a href="http://romanvm.github.io/django-tinymce4-lite/">pyenchant</a> - For TinyMCE to use a spellchecker docs are on the same site.
+<a href="http://romanvm.github.io/django-tinymce4-lite/">pyenchant</a> - For TinyMCE to use a spellchecker docs are on the same site.<br />
+<a href="https://jet.readthedocs.io/en/latest/">Django JET</a>

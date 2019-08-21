@@ -41,4 +41,6 @@ urlpatterns = [
         name='password_reset_complete',
     ),
     path('tinymce/', include('tinymce.urls')),
+    path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
+    path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
 ]
