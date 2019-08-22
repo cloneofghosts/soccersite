@@ -2,4 +2,3 @@ Django
 django-tinymce4-lite
 pyenchant
 django-jet
-django-machina
