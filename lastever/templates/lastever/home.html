@@ -1,0 +1,37 @@
+{% extends "lastever/base.html" %}
+
+{% block head_title %}Home{% endblock %}
+
+{% block content %}
+<div class="main-cover">
+  <div class="cards-container container">
+    <div class="row">
+      <div class="col-lg-12 mb-4 mt-4">
+					<div class="card h-100">
+            <div class="card-header">
+              <h4>Home</h4>
+            </div>
+            <div class="card-body">
+							<p class="card-text">
+                Welcome to the LastEver work in progress homepage! Content will be coming soon trust me!
+              </p>
+            </div>
+          </div>
+        </div>
+        {% for art in articles %}
+        <div class="col-lg-12 mb-4 mt-4">
+            <div class="card h-100">
+              <div class="card-header">
+                <h4>{{ art.title }}</h4>
+                <h6 class="card-subtitle mb-2 text-muted">{{ art.posted }}</h6>
+              </div>
+              <div class="card-body">
+                  {{ art.text|safe }}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+  </div>
+</div>
+{% endblock %}
