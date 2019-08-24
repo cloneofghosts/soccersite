@@ -1,6 +1,7 @@
 from django.db import models
 from django.template.defaultfilters import slugify
 from tinymce import HTMLField
+from django.contrib.auth.models import User
 
 # Create your models here.
 class League(models.Model):
@@ -25,6 +26,7 @@ class Team(models.Model):
     team_abbreviation = models.CharField(max_length=3)
     team_logo = models.URLField(null=True, blank=True)
     team_division = models.ForeignKey(Division, on_delete=models.DO_NOTHING)
+    team_owner = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.team_name
 
@@ -83,6 +85,7 @@ class Schedule(models.Model):
         default=SCHEDULED,
     )
     playoff = models.BooleanField()
+    referee = models.ForeignKey(User, on_delete=models.CASCADE)
     slug = models.SlugField(editable=False)
 
     def __str__(self):

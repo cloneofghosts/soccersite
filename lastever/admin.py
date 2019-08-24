@@ -50,7 +50,7 @@ class ScheduleAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Date information', {'fields': ['scheduled_time']}),
         ('Team information', {'fields': ['home_team', 'home_score', 'away_team', 'away_score'], 'classes': ['collapseable']}),
-        ('Game Status',      {'fields': ['status', 'playoff']}),
+        ('Game Status',      {'fields': ['referee', 'status', 'playoff']}),
     ]
     inlines = [ StatisticInline ]
     autocomplete_fields = ['home_team', 'away_team']
