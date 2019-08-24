@@ -172,3 +172,5 @@ JET_THEMES = [
         'title': 'Light Gray'
     }
 ]
+
+JET_SIDE_MENU_COMPACT = True
