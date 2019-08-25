@@ -1,5 +1,8 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
+from .models import Article
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the lastever index.")
+    article = Article.objects.order_by('-posted').all()
+    context = {'articles': article}
+    return render(request, 'lastever/home.html', context)

@@ -35,6 +35,11 @@
                     </div>
                   {% endfor %}
                 {% endif %}
+                {% if form.captcha.errors %}
+                <div class="alert alert-danger" role="alert">
+                  {{ form.captcha.errors }}
+                </div>
+                {% endif %}
                 <div class="form-group">
                   <label for="id_username">Username</label>
                   <input id="id_username" class="form-control" name="username" placeholder="Username" type="text"/>
@@ -54,6 +59,7 @@
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
+                {{ form.captcha }}
                 <button class="btn btn-primary" type="submit">{% trans "Sign Up" %}</button>
               </form>
             </div>
