@@ -23,3 +23,4 @@ requests-oauthlib
 sqlparse
 urllib3
 django-recaptcha
+django-autoslug

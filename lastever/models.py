@@ -2,17 +2,14 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from tinymce import HTMLField
 from django.contrib.auth.models import User
+from autoslug import AutoSlugField
 
 # Create your models here.
 class League(models.Model):
     league_name = models.CharField(max_length=30)
-    slug = models.SlugField(editable=False)
+    slug = AutoSlugField(populate_from='league_name', unique=True)
     def __str__(self):
         return self.league_name
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.league_name)
-
-        super(League, self).save(*args, **kwargs)
 
 class Division(models.Model):
     division_name = models.CharField(max_length=30)
@@ -46,16 +43,12 @@ class Tag(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=100)
-    slug = models.SlugField(editable=False)
+    slug = AutoSlugField(populate_from='title', unique=True)
     posted = models.DateTimeField()
     tags = models.ManyToManyField(Tag)
     text = HTMLField('Content')
     def __str__(self):
         return self.title
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
-
-        super(Article, self).save(*args, **kwargs)
 
 class Schedule(models.Model):
     # Options for Game Status
@@ -86,18 +79,12 @@ class Schedule(models.Model):
     )
     playoff = models.BooleanField()
     referee = models.ForeignKey(User, on_delete=models.CASCADE)
-    slug = models.SlugField(editable=False)
+    slug_str = "%s %s %s" % (home_team, ' vs ', away_team)
+    slug = AutoSlugField(populate_from='slug_str', unique=True)
 
     def __str__(self):
         str = "%s %s %s" % (self.home_team, ' vs ', self.away_team)
         return str
-    def save(self, *args, **kwargs):
-        if not self.id:
-            # Newly created object, so set slug
-            slug_str = "%s %s %s" % (self.home_team, ' vs ', self.away_team)
-            self.slug = slugify(slug_str)
-
-        super(Schedule, self).save(*args, **kwargs)
 
 class Statistic(models.Model):
     game = models.ForeignKey(Schedule, on_delete=models.DO_NOTHING)
