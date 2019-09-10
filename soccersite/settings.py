@@ -158,9 +158,9 @@ TINYMCE_DEFAULT_CONFIG = {
     'selector': 'textarea',
     'theme': 'modern',
     'plugins': 'link image preview codesample contextmenu table code advlist textcolor colorpicker autolink spellchecker wordcount '
-                'searchreplace paste media insertdatetime hr',
-    'toolbar1': 'formatselect forecolor | bold italic underline | alignleft aligncenter alignright alignjustify '
-               '| bullist numlist | outdent indent | insertdatetime table hr | link image media | codesample | preview code | spellchecker searchreplace paste',
+                'searchreplace paste media insertdatetime hr lists',
+    'toolbar1': 'formatselect forecolor | bold italic underline | bullist numlist | alignleft aligncenter alignright alignjustify '
+               '| outdent indent | insertdatetime table hr | link image media | codesample | preview code | spellchecker searchreplace paste',
     'contextmenu': 'formats | link image | spellchecker',
     'menubar': False,
     'inline': False,
