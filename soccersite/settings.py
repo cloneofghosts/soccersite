@@ -208,7 +208,13 @@ JET_SIDE_MENU_COMPACT = True
 # Allauth custom signup form
 ACCOUNT_SIGNUP_FORM_CLASS = 'lastever.forms.AllauthSignupForm'
 LOGIN_REDIRECT_URL = '/forum'
-
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.office365.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = DEFAULT_FROM_EMAIL = 'lasteversoccer@outlook.com'
+EMAIL_HOST_PASSWORD = '#'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = True
 
 # reCaptcha settings
 RECAPTCHA_PUBLIC_KEY = "#"
