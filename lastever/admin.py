@@ -17,6 +17,12 @@ class TeamAdmin(admin.ModelAdmin):
     list_filter = ['team_division']
     search_fields = ['team_name']
 
+    def get_queryset(self, request):
+        qs = super(TeamAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(team_owner=request.user)
+
 class LeagueAdmin(admin.ModelAdmin):
     list_display = ('league_name', 'slug')
     search_fields = ['league_name']
@@ -55,6 +61,12 @@ class ScheduleAdmin(admin.ModelAdmin):
     inlines = [ StatisticInline ]
     autocomplete_fields = ['home_team', 'away_team']
     search_fields = ['home_team', 'away_team']
+
+    def get_queryset(self, request):
+        qs = super(ScheduleAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(referee=request.user)
 
 class TagAdmin(admin.ModelAdmin):
     search_fields = ['tag_name']

@@ -23,7 +23,7 @@ class Team(models.Model):
     team_abbreviation = models.CharField(max_length=3)
     team_logo = models.URLField(null=True, blank=True)
     team_division = models.ForeignKey(Division, on_delete=models.DO_NOTHING)
-    team_owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    team_owner = models.ForeignKey(User, limit_choices_to={'groups__name__in': ["Team Owner", "Admin"]}, on_delete=models.CASCADE)
     def __str__(self):
         return self.team_name
 
@@ -78,13 +78,18 @@ class Schedule(models.Model):
         default=SCHEDULED,
     )
     playoff = models.BooleanField()
-    referee = models.ForeignKey(User, on_delete=models.CASCADE)
-    slug_str = "%s %s %s" % (home_team, ' vs ', away_team)
-    slug = AutoSlugField(populate_from='slug_str', unique=True)
+    referee = models.ForeignKey(User, limit_choices_to={'groups__name__in': ["Referee", "Admin"]}, on_delete=models.CASCADE)
+
 
     def __str__(self):
         str = "%s %s %s" % (self.home_team, ' vs ', self.away_team)
         return str
+    slug = AutoSlugField(populate_from='__str__', unique=True)
+
+    def save(self, *args, **kwargs):
+        self.author = self.referee
+        super(Schedule, self).save(*args, **kwargs)
+
 
 class Statistic(models.Model):
     game = models.ForeignKey(Schedule, on_delete=models.DO_NOTHING)
