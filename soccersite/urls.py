@@ -19,6 +19,7 @@ from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
 from machina import urls as machina_urls
+from django.conf.urls import url
 
 urlpatterns = [
     path('', include('lastever.urls')),
@@ -48,4 +49,5 @@ urlpatterns = [
     path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
     path('accounts/', include('allauth.urls')),
     path('forum/', include(machina_urls)),
+    url(r'^', include('allauth_2fa.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

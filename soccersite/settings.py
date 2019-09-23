@@ -51,6 +51,14 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'captcha',
 
+    # Configure the django-otp package.
+    'django_otp',
+    'django_otp.plugins.otp_totp',
+    'django_otp.plugins.otp_static',
+
+    # Enable two-factor auth.
+    'allauth_2fa',
+
     # Machina dependencies:
     'mptt',
     'haystack',
@@ -81,6 +89,24 @@ MIDDLEWARE = [
     # Machina
     'machina.apps.forum_permission.middleware.ForumPermissionMiddleware',
 ]
+
+
+MIDDLEWARE_CLASSES = (
+    # Configure Django auth package.
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+
+    # Configure the django-otp package. Note this must be after the
+    # AuthenticationMiddleware.
+    'django_otp.middleware.OTPMiddleware',
+
+    # Reset login flow middleware. If this middleware is included, the login
+    # flow is reset if another page is loaded between login and successfully
+    # entering two-factor credentials.
+    'allauth_2fa.middleware.AllauthTwoFactorMiddleware',
+)
+
+# Set the allauth adapter to be the 2FA adapter.
+ACCOUNT_ADAPTER = 'allauth_2fa.adapter.OTPAdapter'
 
 ROOT_URLCONF = 'soccersite.urls'
 
