@@ -24,3 +24,4 @@ sqlparse
 urllib3
 django-recaptcha
 django-autoslug
+django-allauth-2fa

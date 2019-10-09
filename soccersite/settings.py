@@ -88,6 +88,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # Machina
     'machina.apps.forum_permission.middleware.ForumPermissionMiddleware',
+    #require 2fa for staff
+    'soccersite.middleware.RequireStaff2FAMiddleware'
 ]
 
 
