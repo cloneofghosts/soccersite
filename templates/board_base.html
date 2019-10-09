@@ -34,6 +34,11 @@
       <li class="nav-item">
         <a class="nav-link" href="/news">News</a>
       </li>
+      {% for league in leagues %}
+        <li class="nav-item">
+          <a class="nav-link" href="/league/{{ league.slug }}">{{ league.league_name }}</a>
+        </li>
+      {% endfor %}
       {% if user.is_authenticated %}
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
