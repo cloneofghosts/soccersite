@@ -49,6 +49,17 @@
               </div>
             </div>
           </div>
+        {% empty %}
+        <div class="col-lg-12 mb-4 mt-4">
+            <div class="card h-100">
+              <div class="card-header">
+                <h4>No news</h4>
+              </div>
+              <div class="card-body">
+                  There is currently no news! Stay tuned for more updates.
+              </div>
+            </div>
+          </div>
         {% endfor %}
       </div>
       <a class="btn btn-secondary d-flex justify-content-center mb-3" href="/news" role="button">View All News</a>

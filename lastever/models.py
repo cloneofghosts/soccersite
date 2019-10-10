@@ -100,3 +100,21 @@ class Statistic(models.Model):
     def __str__(self):
         self_str = "%s %s %s %s" % (self.game, ' - ', self.player, 'Statistic')
         return self_str
+
+class Standings(models.Model):
+
+    team = models.CharField(max_length=30)
+    gp = models.PositiveSmallIntegerField()
+    w = models.PositiveSmallIntegerField()
+    d = models.PositiveSmallIntegerField()
+    l = models.PositiveSmallIntegerField()
+    pts = models.PositiveSmallIntegerField()
+    gf = models.PositiveSmallIntegerField()
+    ga = models.PositiveSmallIntegerField()
+    gd = models.SmallIntegerField()
+    division_id = models.PositiveSmallIntegerField()
+    logo = models.URLField(null=True, blank=True)
+
+    class Meta:
+       managed = False
+       db_table = "lastever_standings"

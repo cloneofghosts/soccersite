@@ -1,0 +1,87 @@
+{% extends "lastever/base.html" %}
+
+{% block head_title %}Home{% endblock %}
+
+{% block content %}
+<div class="main-cover">
+  <div class="cards-container container">
+    <h1 class="my-4">Standings</h1>
+    {% if messages %}
+      {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% else %}
+          <div class="alert alert-{{ message.tags }} alert-dismissible fade show mt-4" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    <div class="row">
+      {% for div in division %}
+      <div class="col-lg-12 mb-4 mt-4">
+          <div class="card h-100">
+            <div class="card-header">
+              <h4>{{ div.division_name }}</h4>
+            </div>
+            <div class="card-body">
+              <table id="standings_{{div.id}}"
+                class="table table-bordered table-striped table-dark table-hover table-sm">
+                <thead>
+                  <tr>
+                    <th scope="col" style="text-align: center">Team</th>
+                    <th scope="col" style="text-align: center">GP</th>
+                    <th scope="col" style="text-align: center">W</th>
+                    <th scope="col" style="text-align: center">L</th>
+                    <th scope="col" style="text-align: center">D</th>
+                    <th scope="col" style="text-align: center">PTS</th>
+                    <th scope="col" style="text-align: center">GF</th>
+                    <th scope="col" style="text-align: center">GA</th>
+                    <th scope="col" style="text-align: center">GD</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for s in standings %}
+                  {% if s.division_id == div.id %}
+                    <tr>
+                      <td scope="row" style="text-align: center">{{ s.team }}</td>
+                      <td style="text-align: center">{{ s.gp }}</td>
+                      <td style="text-align: center">{{ s.w }}</td>
+                      <td style="text-align: center">{{ s.l }}</td>
+                      <td style="text-align: center">{{ s.d }}</td>
+                      <td style="text-align: center">{{ s.pts }}</td>
+                      <td style="text-align: center">{{ s.gf }}</td>
+                      <td style="text-align: center">{{ s.ga }}</td>
+                      <td style="text-align: center">{{ s.gd }}</td>
+                      </tr>
+                    {% endif %}
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      {% empty %}
+      <div class="col-lg-12 mb-4 mt-4">
+          <div class="card h-100">
+            <div class="card-header">
+              <h4>No news</h4>
+            </div>
+            <div class="card-body">
+                There are no divisions/teams in this league yet!
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
