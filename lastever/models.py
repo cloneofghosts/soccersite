@@ -3,6 +3,7 @@ from django.template.defaultfilters import slugify
 from tinymce import HTMLField
 from django.contrib.auth.models import User
 from autoslug import AutoSlugField
+from datetime import datetime
 
 # Create your models here.
 class League(models.Model):
@@ -44,7 +45,7 @@ class Tag(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=100)
     slug = AutoSlugField(populate_from='title', unique=True)
-    posted = models.DateTimeField()
+    posted = models.DateTimeField(default=datetime.now)
     tags = models.ManyToManyField(Tag)
     text = HTMLField('Content')
     def __str__(self):
@@ -68,10 +69,13 @@ class Schedule(models.Model):
     ]
 
     scheduled_time = models.DateTimeField()
-    home_team = models.ForeignKey(Team, on_delete=models.DO_NOTHING, related_name='+')
+    home_team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='+')
     home_score = models.PositiveSmallIntegerField(null=True, blank=True)
-    away_team = models.ForeignKey(Team, on_delete=models.DO_NOTHING, related_name='+')
+    home_pk = models.PositiveSmallIntegerField(null=True, blank=True)
+    away_team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='+')
     away_score = models.PositiveSmallIntegerField(null=True, blank=True)
+    away_pk = models.PositiveSmallIntegerField(null=True, blank=True)
+    league = models.ForeignKey(League, on_delete=models.CASCADE)
     status = models.CharField(
         max_length=3,
         choices=STATUS_CHOICES,
@@ -101,6 +105,7 @@ class Statistic(models.Model):
         self_str = "%s %s %s %s" % (self.game, ' - ', self.player, 'Statistic')
         return self_str
 
+# Database Views, adding them in as models so they can be used in the code
 class Standings(models.Model):
 
     team = models.CharField(max_length=30)

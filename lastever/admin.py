@@ -54,8 +54,8 @@ class ScheduleAdmin(admin.ModelAdmin):
     list_filter = ['scheduled_time', 'status', 'playoff']
 
     fieldsets = [
-        ('Date information', {'fields': ['scheduled_time']}),
-        ('Team information', {'fields': ['home_team', 'home_score', 'away_team', 'away_score'], 'classes': ['collapseable']}),
+        ('Date information', {'fields': ['scheduled_time', 'league']}),
+        ('Team information', {'fields': ['home_team', 'home_score', 'home_pk', 'away_team', 'away_score', 'away_pk'], 'classes': ['collapseable']}),
         ('Game Status',      {'fields': ['referee', 'status', 'playoff']}),
     ]
     inlines = [ StatisticInline ]
