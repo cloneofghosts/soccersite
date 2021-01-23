@@ -4,7 +4,6 @@ defusedxml
 Django
 django-allauth
 django-haystack
-django-jet
 django-js-asset
 django-machina
 django-mptt
