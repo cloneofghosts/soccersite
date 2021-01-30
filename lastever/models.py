@@ -123,3 +123,19 @@ class Standings(models.Model):
     class Meta:
        managed = False
        db_table = "lastever_standings"
+
+class Statistics(models.Model):
+
+    team_name = models.CharField(max_length=30)
+    player_name = models.CharField(max_length=30)
+    gp = models.PositiveSmallIntegerField()
+    goals = models.PositiveSmallIntegerField()
+    yellowCards = models.PositiveSmallIntegerField()
+    redCards = models.PositiveSmallIntegerField()
+    player_id = models.PositiveSmallIntegerField()
+    team_id = models.PositiveSmallIntegerField()
+    league_id = models.PositiveSmallIntegerField()
+
+    class Meta:
+       managed = False
+       db_table = "lastever_stats"
