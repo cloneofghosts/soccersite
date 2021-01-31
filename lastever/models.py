@@ -15,7 +15,7 @@ class League(models.Model):
 class Division(models.Model):
     division_name = models.CharField(max_length=30)
     division_logo = models.URLField(null=True, blank=True)
-    division_leage = models.ForeignKey(League, on_delete=models.DO_NOTHING)
+    division_leage = models.ForeignKey(League, on_delete=models.CASCADE)
     def __str__(self):
         return self.division_name
 
@@ -23,7 +23,7 @@ class Team(models.Model):
     team_name = models.CharField(max_length=30)
     team_abbreviation = models.CharField(max_length=3)
     team_logo = models.URLField(null=True, blank=True)
-    team_division = models.ForeignKey(Division, on_delete=models.DO_NOTHING)
+    team_division = models.ForeignKey(Division, on_delete=models.CASCADE)
     team_owner = models.ForeignKey(User, limit_choices_to={'groups__name__in': ["Team Owner", "Admin"]}, on_delete=models.CASCADE)
     def __str__(self):
         return self.team_name
@@ -33,7 +33,7 @@ class Player(models.Model):
     last_name = models.CharField(max_length=50)
     email = models.EmailField(max_length=100)
     number = models.PositiveSmallIntegerField(null=True, blank=True)
-    team = models.ForeignKey(Team, on_delete=models.DO_NOTHING)
+    team = models.ForeignKey(Team, on_delete=models.CASCADE)
     def __str__(self):
         return self.first_name + ' ' + self.last_name
 
@@ -96,8 +96,8 @@ class Schedule(models.Model):
 
 
 class Statistic(models.Model):
-    game = models.ForeignKey(Schedule, on_delete=models.DO_NOTHING)
-    player = models.ForeignKey(Player, on_delete=models.DO_NOTHING)
+    game = models.ForeignKey(Schedule, on_delete=models.CASCADE)
+    player = models.ForeignKey(Player, on_delete=models.CASCADE)
     goals = models.PositiveSmallIntegerField()
     yellow_cards = models.PositiveSmallIntegerField()
     red_cards = models.PositiveSmallIntegerField()
