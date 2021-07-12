@@ -7,7 +7,7 @@ cryptography==3.3.2
 defusedxml==0.7.1
 Django==3.2.5
 django-admin-interface==0.16.3
-django-allauth==0.44.0
+django-allauth==0.45.0
 django-allauth-2fa==0.8
 django-autoslug==1.9.8
 django-colorfield==0.4.1
