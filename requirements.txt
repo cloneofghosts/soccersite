@@ -17,7 +17,7 @@ django-haystack==3.1.1
 django-jet==1.0.8
 django-js-asset==1.2.2
 django-machina==1.1.5
-django-mptt==0.13.2
+django-mptt==0.13.3
 django-otp==1.0.6
 django-recaptcha==2.0.6
 django-tinymce4-lite==1.8.0
