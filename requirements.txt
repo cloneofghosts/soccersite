@@ -6,7 +6,7 @@ colorama==0.4.4
 cryptography==3.4.8
 defusedxml==0.7.1
 Django==3.2.7
-django-admin-interface==0.17.0
+django-admin-interface==0.17.1
 django-allauth==0.45.0
 django-allauth-2fa==0.8
 django-autoslug==1.9.8
