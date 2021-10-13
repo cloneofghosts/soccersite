@@ -23,7 +23,7 @@ django-recaptcha==2.0.6
 django-tinymce4-lite==1.8.0
 django-widget-tweaks==1.4.8
 docopt==0.6.2
-idna==3.2
+idna==3.3
 jsmin==3.0.0
 markdown2==2.4.1
 oauthlib==3.1.1
