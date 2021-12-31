@@ -18,7 +18,6 @@ from django.urls import include, path
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
-from machina import urls as machina_urls
 from django.conf.urls import url
 
 urlpatterns = [
@@ -46,6 +45,5 @@ urlpatterns = [
     ),
     path('tinymce/', include('tinymce.urls')),
     path('accounts/', include('allauth.urls')),
-    path('forum/', include(machina_urls)),
     url(r'^', include('allauth_2fa.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
