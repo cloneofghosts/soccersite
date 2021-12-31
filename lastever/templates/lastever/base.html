@@ -33,6 +33,7 @@
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{% url 'account_email' %}">Change Email</a>
           <a class="dropdown-item" href="{% url 'account_change_password' %}">Change Password</a>
+          <a class="dropdown-item" href="/two_factor/backup_tokens">View Backup Codes</a>
           <div class="dropdown-divider"></div>
           {% if user.is_staff %}
             <a class="dropdown-item" href="/admin">Admin</a>

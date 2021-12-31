@@ -28,6 +28,10 @@ class Team(models.Model):
     def __str__(self):
         return self.team_name
 
+    def save(self, *args, **kwargs):
+        self.author = self.team_owner
+        super(Team, self).save(*args, **kwargs)
+
 class Player(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
