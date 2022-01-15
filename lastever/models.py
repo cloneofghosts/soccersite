@@ -33,6 +33,7 @@ class Team(models.Model):
         super(Team, self).save(*args, **kwargs)
 
 class Player(models.Model):
+    author = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField(max_length=100)
@@ -100,6 +101,7 @@ class Schedule(models.Model):
 
 
 class Statistic(models.Model):
+    author = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
     game = models.ForeignKey(Schedule, on_delete=models.CASCADE)
     player = models.ForeignKey(Player, on_delete=models.CASCADE)
     goals = models.PositiveSmallIntegerField()

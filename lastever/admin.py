@@ -49,6 +49,10 @@ class ArticleAdmin(admin.ModelAdmin):
         ('Post',             {'fields': ['text']}),
     ]
 
+    def save_model(self, request, obj, form, change):
+        obj.user = request.user
+        super().save_model(request, obj, form, change)
+
 class ScheduleAdmin(admin.ModelAdmin):
     list_display = ('scheduled_time', 'home_team', 'home_score', 'away_team', 'away_score', 'status', 'playoff', 'slug')
     list_filter = ['scheduled_time', 'status', 'playoff']
@@ -75,6 +79,10 @@ class StatisticAdmin(admin.ModelAdmin):
     list_display = ('game', 'player', 'goals', 'yellow_cards', 'red_cards')
     list_filter = ['game', 'player']
     autocomplete_fields = ['player', 'game']
+
+    def save_model(self, request, obj, form, change):
+        obj.user = request.user
+        super().save_model(request, obj, form, change)
 
 # Register your models here.
 admin.site.register(League, LeagueAdmin)
