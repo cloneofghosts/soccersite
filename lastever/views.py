@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 from .models import Article, League, Tag, Division, Standings, Schedule
 
 def index(request):
-    article = Article.objects.order_by('-posted')[:10]
+    article = Article.objects.order_by('-posted')[:3]
 
     context = {'articles': article}
     return render(request, 'lastever/home.html', context)

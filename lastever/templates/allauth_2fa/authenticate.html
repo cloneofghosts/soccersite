@@ -5,35 +5,28 @@
 
 {% block content %}
 
-<div class="main-cover">
-  <div class="cards-container container">
-    <div class="row">
-      <div class="col-lg-12 mb-4 mt-4">
-					<div class="card h-100">
-            <div class="card-header">
-              <h4>{% trans "Two-Factor Authentication" %}</h4>
-            </div>
-            <div class="card-body">
-              <form method="post">
-                {% for error in field_errors %}
+<div class="container col-xl-10 col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-lg-7 text-center text-lg-start">
+        <h1 class="display-4 fw-bold lh-1 mb-3">{% trans "Two-Factor Authentication" %}</h1>
+        <p class="col-lg-10 fs-4">Enter in the authentication code from your authenticator app to continue.</a></p>
+      </div>
+      <div class="col-md-10 mx-auto col-lg-5">
+        <form class="p-4 p-md-5 border rounded-3 bg-light password_reset" method="post">
+		{% for error in field_errors %}
                   <div class="alert alert-danger" role="alert">
                     {{ error|escape }}
                   </div>
                 {% endfor %}
                 {% csrf_token %}
-                <div class="form-group">
-                  <label for="id_otp_token">{{ form.otp_token.label }}</label>
-                  <input id="id_otp_token" class="form-control" name="otp_token" autofocus="autofocus" type="text" />
-                </div>
-                <button type="submit" class="btn btn-primary">
-                  {% trans 'Authenticate' %}
-                </button>
-              </form>
-            </div>
+          <div class="form-floating mb-3">
+            <input id="id_otp_token floatingInput" class="form-control" name="otp_token" autofocus="autofocus" type="text" />
+		    <label for="id_otp_token">{{ form.otp_token.label }}</label>
           </div>
-        </div>
+          <button class="btn btn-primary primaryAction" type="submit">{% trans 'Authenticate' %}</button>
+        </form>
       </div>
+    </div>
   </div>
-</div>
 
 {% endblock %}
