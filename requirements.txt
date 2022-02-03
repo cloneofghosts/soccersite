@@ -26,7 +26,7 @@ idna==3.3
 jsmin==3.0.1
 markdown2==2.4.2
 oauthlib==3.2.0
-Pillow==9.0.0
+Pillow==9.0.1
 pipreqs==0.4.11
 pycparser==2.21
 pyenchant==3.2.2
