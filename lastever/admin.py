@@ -1,5 +1,8 @@
 from django.contrib import admin
+from django.contrib.auth.decorators import login_required
 from .models import League, Division, Team, Tag, Player, Article, Schedule, Statistic
+
+admin.site.login = login_required(admin.site.login)
 
 # Inlines
 class StatisticInline(admin.TabularInline):

@@ -3,6 +3,22 @@
 {% block head_title %}Home{% endblock %}
 
 {% block content %}
+
+<div class="container col-xxl-12 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold lh-1 mb-3">Adult Indoor Soccer League</h1>
+        <p class="lead">The official indoor soccer league of the Carleton Place Soccer Club in partnership with the Beackwith recreation department</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+        </div>
+      </div>
+    </div>
+  </div>
 <div class="main-cover">
   <div class="cards-container container">
     {% if messages %}
@@ -24,27 +40,18 @@
         {% endif %}
       {% endfor %}
     {% endif %}
-    <div class="row">
+   <div class="row row-cols-1 row-cols-md-3 g-4 mb-4">
         {% for art in articles %}
-		{% if forloop.first %}
-		<div class="p-5 mb-4 bg-light rounded-3">
-		  <div class="container-fluid py-5">
-			<h1 class="fw-bold">{{ art.title }}</h1>
-			<h6 class="mb-2 text-muted">{{ art.posted }}</h6>
-			<p class="fs-5">{{ art.text|safe|truncatewords:"50"|striptags }}</p>
-			<a class="btn btn-primary btn-lg" type="button" href="/news/{{ art.slug }}">Read More</a>
-		  </div>
-		</div>
-		{% else %}
-		<div class="col-md-6 mb-4">
-			<div class="h-100 p-5 bg-light rounded-3">
-			  <h2 class="fw-bold">{{ art.title }}</h2>
-				<h6 class="mb-2 text-muted">{{ art.posted }}</h6>
-				<p>{{ art.text|safe|truncatewords:"40"|striptags }}</p>
-				<a class="btn btn-primary" type="button" href="/news/{{ art.slug }}">Read More</a>
+		<div class="col">
+			<div class="card h-100 rounded-10">
+				<div class="card-body">
+					<h3 class="card-title">{{ art.title }}</h3>
+					<h6 class="mb-2 text-muted">{{ art.posted }}</h6>
+					<p class="card-text">{{ art.text|safe|truncatewords:"40"|striptags }}</p>
+					<a class="btn btn-primary" type="button" href="/news/{{ art.slug }}">Read More</a>
+				</div>
 			</div>
-      </div>
-		{% endif %}
+		</div>
         {% empty %}
         <div class="p-5 mb-4 bg-light rounded-3">
 		  <div class="container-fluid py-5">
@@ -54,7 +61,7 @@
 		</div>
         {% endfor %}
       </div>
-      <a class="btn btn-secondary d-flex justify-content-center mb-3" href="/news" role="button">View All News</a>
+      <a class="btn btn-secondary mb-3" href="/news" role="button">View All News</a>
 
     <div class="container px-4 py-5" id="featured-3">
     <h2 class="pb-2 border-bottom">Expected Divisional Game Nights and Kickoff Times</h2>

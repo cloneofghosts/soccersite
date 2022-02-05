@@ -1,0 +1,17 @@
+.btn-primary:hover{
+	background: #45483D !important;
+}
+
+.btn-primary:focus{
+	box-shadow: 0 0 0 0.25rem rgb(69 72 61 / 50%);
+	background: #45483D !important;
+}
+
+.btn-primary{
+	background: #4F5744 !important;
+	border: 1px solid #4F5744 !important;
+}
+
+.subpage-banner{
+	background: #BEC4B5;
+}

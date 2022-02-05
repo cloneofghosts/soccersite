@@ -18,6 +18,12 @@ def news(request):
 
     context = {'articles': article}
     return render(request, 'lastever/news.html', context)
+	
+def about(request):
+    return render(request, 'lastever/about.html')
+	
+def contact(request):
+    return render(request, 'lastever/contact.html')
 
 def news_page(request, page_id):
     articles = Article.objects.order_by('-posted').all()
