@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<div class="container col-xxl-12 py-5">
+<div class="container-lg col-xxl-12 py-5">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
       <div class="col-10 col-sm-8 col-lg-6">
         
@@ -20,7 +20,7 @@
     </div>
   </div>
 <div class="main-cover">
-  <div class="cards-container container">
+  <div class="cards-container container-lg">
     {% if messages %}
       {% for message in messages %}
         {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
@@ -40,10 +40,27 @@
         {% endif %}
       {% endfor %}
     {% endif %}
-   <div class="row row-cols-1 row-cols-md-3 g-4 mb-4">
+	<div class="row">
+	<div class="col-md-6 mb-4">
+		<div class="h-100 p-5 bg-light rounded-3">
+			<h2 class="fw-bold">Proof of Vaccinations</h2>
+			<p>As per the September 1, 2021, Government of Ontario announcement, as of September 22, 2021, any person entering the Beckwith Recreational Complex will require proof of two COVID-19 vaccinations.</p>
+			<p><strong>Click to see the AISL <a href="/uploads/files/Ontario_Proof_of_Vaccination.pdf" target="_blank">proof of vaccination primer</a>.</strong></p>
+		</div>
+	</div>
+	<div class="col-md-6 mb-4">
+		<div class="h-100 p-5 bg-light rounded-3">
+			<h2 class="fw-bold">Return To Play Guide</h2>
+			<p>Please see the AISL Return To Play Guide for information on how the 2021 / 2022 AISL season will run differently to respect safety practices and modifications to traditional league rules.</p>
+			<p><strong><a href="/uploads/files/RTP/Return_to_Play_-_AISL_Modifications.pdf" target="_blank">2021 / 2022 AISL RETURN TO PLAY GUIDE</a></strong></p>
+		</div>
+	</div>
+	</div>
+	<h2 class="text-center mt-4">Latest News</h2>
+   <div class="row row-cols-lg-3 row-cols-xs-1 row-cols-sm-1 row-cols-md-2 g-4 mt-2">
         {% for art in articles %}
-		<div class="col">
-			<div class="card h-100 rounded-10">
+		<div class="col mb-4">
+			<div class="card h-100">
 				<div class="card-body">
 					<h3 class="card-title">{{ art.title }}</h3>
 					<h6 class="mb-2 text-muted">{{ art.posted }}</h6>
@@ -62,54 +79,81 @@
         {% endfor %}
       </div>
       <a class="btn btn-secondary mb-3" href="/news" role="button">View All News</a>
-
-    <div class="container px-4 py-5" id="featured-3">
-    <h2 class="pb-2 border-bottom">Expected Divisional Game Nights and Kickoff Times</h2>
-    <div class="row g-4 py-5 row-cols-1 row-cols-lg-4">
-      <div class="feature col">
-        <h3>Women's 30+</h3>
-        <ul>
-			<li>Sunday nights</li>
-			<li>Kickoff times: 6:00pm – 10:00pm</li>
-		</ul>
-      </div>
-      <div class="feature col">
-        <h3>Women's Open 18+</h3>
-        <ul>
-			<li>Competitive and Recreational tier</li>
-			<li>Wednesday nights</li>
-			<li>Kickoff times: 6:00pm – 11:00pm</li>
-			<li>If there are more than 10 teams, games may be held:
-			<ul>
-				<li>Tuesday nights</li>
-				<li>Kickoff times: 9:00pm – 11:00pm</li>
-			</ul>
-			</li>
-		</ul>
-      </div>
-      <div class="feature col">
-        <h3>Co-ed Open 18+</h3>
-        <ul>
-			<li><span style="font-size:14px">Thursday nights</li>
-			<li><span style="font-size:14px">Kickoff times: 6:30pm – 10:30pm</li>
-			<li><span style="font-size:14px">If there are more than 8 teams, games may be held:
-			<ul>
-				<li>Tuesday nights</li>
-				<li><span style="font-size:14px">Kickoff times: 9:00pm – 11:00pm</li>
-			</ul>
-			</li>
-		</ul>
-      </div>
-      <div class="feature col">
-        <h3>Men's OT 35+</h3>
-        <ul>
-			<li><span style="font-size:14px">Competitive and Recreational tier</li>
-			<li><span style="font-size:14px">Friday nights</li>
-			<li><span style="font-size:14px">Kickoff times: 6:30pm – 11:30pm</li>
-		</ul>
-      </div>
-    </div>
-  </div>
+	
+	<p>The AISL indoor season is comprised of competitive and recreational teams in four divisions competing across two or three sessions.</p>
+	<p>All games held at the Beckwith Recreation Complex in Beckwith, Ontario.</p>
+	<p>The league is an Ontario Soccer sanctionned league through the Carleton Place Soccer Club.</p>
+	
+	 <h3 class="pt-4 pb-2 border-bottom text-center">Sessions</h3>
+	 <h5><strong>Two sessions:</strong></h5>
+	 <ul>
+		<li>Fall Session: September - January (15 games)</li>
+		<li>Spring Session: January - May (15 games)</li>
+	</ul>
+	
+    <div class="container-lg px-4 py-5" id="featured-3">
+    <h3 class="pb-2 border-bottom text-center">Expected Divisional Game Nights and Kickoff Times</h3>
+		<div class="row row-cols-4 pt-5">
+			<div class="col mb-4">
+				<div class="card h-100">
+					<div class="card-body">
+						<h5 class="card-title">Women's 30+</h5>
+						<ul>
+							<li>Sunday nights</li>
+							<li>Kickoff times: 6:00pm – 10:00pm</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col mb-4">
+				<div class="card h-100">
+					<div class="card-body">
+						<h5 class="card-title">Women's Open 18+</h5>
+						<ul>
+							<li>Competitive and Recreational tier</li>
+							<li>Wednesday nights</li>
+							<li>Kickoff times: 6:00pm – 11:00pm</li>
+							<li>If there are more than 10 teams, games may be held:
+							<ul>
+								<li>Tuesday nights</li>
+								<li>Kickoff times: 9:00pm – 11:00pm</li>
+							</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col mb-4">
+				<div class="card h-100">
+					<div class="card-body">
+						<h5 class="card-title">Co-ed Open 18+</h5>
+						<ul>
+							<li>Thursday nights</li>
+							<li>Kickoff times: 6:30pm – 10:30pm</li>
+							<li>If there are more than 8 teams, games may be held:
+							<ul>
+								<li>Tuesday nights</li>
+								<li>Kickoff times: 9:00pm – 11:00pm</li>
+							</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col mb-4">
+				<div class="card h-100">
+					<div class="card-body">
+						<h5 class="card-title">Men's OT 35+</h5>
+						<ul>
+							<li>Competitive and Recreational tier</li>
+							<li>Friday nights</li>
+							<li>Kickoff times: 6:30pm – 11:30pm</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 

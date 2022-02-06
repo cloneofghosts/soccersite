@@ -12,6 +12,10 @@
 	border: 1px solid #4F5744 !important;
 }
 
+.bg-dark{
+	background: #4F5744 !important;
+}
+
 .subpage-banner{
 	background: #BEC4B5;
 }
