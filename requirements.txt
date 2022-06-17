@@ -1,5 +1,5 @@
 ﻿asgiref==3.5.2
-certifi==2022.5.18.1
+certifi==2022.6.15
 cffi==1.15.0
 chardet==4.0.0
 colorama==0.4.4
