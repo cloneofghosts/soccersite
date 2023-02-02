@@ -5,7 +5,7 @@ chardet==5.1.0
 colorama==0.4.6
 cryptography==39.0.0
 defusedxml==0.7.1
-Django==4.1.5
+Django==4.1.6
 django-admin-interface==0.24.2
 django-allauth==0.52.0
 django-allauth-2fa==0.10.0
