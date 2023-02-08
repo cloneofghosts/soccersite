@@ -3,7 +3,7 @@ certifi==2022.12.7
 cffi==1.15.1
 chardet==5.1.0
 colorama==0.4.6
-cryptography==39.0.0
+cryptography==39.0.1
 defusedxml==0.7.1
 Django==4.1.6
 django-admin-interface==0.24.2
