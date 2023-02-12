@@ -15,7 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django_otp.admin import OTPAdminSite
+from django.conf.urls import include
+from django.contrib.flatpages import views
+from django.urls import re_path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+	path('tinymce/', include('tinymce.urls')),
 ]
+
+urlpatterns += [
+    re_path(r'^(?P<url>.*/)$', views.flatpage),
+]
+
+admin.site.__class__ = OTPAdminSite
