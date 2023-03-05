@@ -15,18 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django_otp.admin import OTPAdminSite
+from two_factor.admin import AdminSiteOTPRequired
 from django.conf.urls import include
 from django.contrib.flatpages import views
 from django.urls import re_path
+from two_factor.urls import urlpatterns as tf_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 	path('tinymce/', include('tinymce.urls')),
+	path('', include('lastever.urls')),
+	path('', include(tf_urls)),
 ]
 
 urlpatterns += [
     re_path(r'^(?P<url>.*/)$', views.flatpage),
 ]
 
-admin.site.__class__ = OTPAdminSite
+admin.site.__class__ = AdminSiteOTPRequired

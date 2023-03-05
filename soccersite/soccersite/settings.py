@@ -46,6 +46,9 @@ INSTALLED_APPS = [
 	'django.contrib.flatpages',
 	'django_otp',
     'django_otp.plugins.otp_totp',
+    'django_otp.plugins.otp_static',
+	'two_factor',
+	'two_factor.plugins.phonenumber',
 	'tinymce',
 ]
 
@@ -57,10 +60,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+	'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django_otp.middleware.OTPMiddleware',
 	'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware'
 ]
 
+LOGIN_URL = 'two_factor:login'
 ROOT_URLCONF = 'soccersite.urls'
 
 TEMPLATES = [
@@ -131,6 +136,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'static'
+
+MEDIA_URL = 'media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

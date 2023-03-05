@@ -1,0 +1,142 @@
+{% extends "soccersite/base.html" %}
+
+{% block head_title %}Home{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<section id="hero-animated" class="hero-animated d-flex align-items-center">
+    <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
+      <img src="{% static 'assets/img/hero-carousel/hero-carousel-3.svg' %}" class="img-fluid animated">
+      <h2>Adult Indoor Soccer League</span></h2>
+      <p>The official indoor soccer league of the Carleton Place Soccer Club in partnership with the Beckwith Recreation Department</p>
+    </div>
+  </section>
+
+  <main id="main">
+  
+  <!-- ======= Call To Action Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container" data-aos="zoom-out">
+
+        <div class="row g-5">
+
+          <div class="col-lg-12 col-md-12 content d-flex flex-column justify-content-center order-last order-md-first">
+            <h3>As of March 1, 2022, unvaccinated players are <em>allowed to play</em> in the league.</h3>
+            <p>Click to see info about the vaccination mandate lifting.</p>
+			<p>Click to see info about what happens / what to do if you are COVID-19 positive or a close contact.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Call To Action Section -->
+	
+	    <!-- ======= Recent Blog Posts Section ======= -->
+    <section id="recent-blog-posts" class="recent-blog-posts">
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Other Updates</h2>
+          <p>Other Important Updates from AISL</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="post-box">
+              <h3 class="post-title">SPRING SEASON</h3>
+              <p>THE 2021/22 AISL SPRING SEASON IS UNDERWAY!</p>
+			  <p>REMEMBER: NO SPECTATORS and NO CHILDREN at AISL Games</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="post-box">
+              <h3 class="post-title">Proof of Vaccination</h3>
+              <p>As per the September 1, 2021, Government of Ontario announcement, as of September 22, 2021, any person entering the Beckwith Recreational Complex will require proof of two COVID-19 vaccinations.</p>
+              <a href="http://www.beckwithindoorsoccer.com/uploads/files/Ontario_Proof_of_Vaccination.pdf" class="readmore stretched-link"><span>Proof of Vaccination Primer</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="600">
+            <div class="post-box">
+              <h3 class="post-title">Return To Play Guide</h3>
+              <p>Please see the AISL Return To Play Guide for information on how the 2021 / 2022 AISL season will run differently to respect safety practices and modifications to traditional league rules.</p>
+              <a href="http://www.beckwithindoorsoccer.com/uploads/files/RTP/Return_to_Play_-_AISL_Modifications.pdf" class="readmore stretched-link"><span>2021 / 2022 AISL RETURN TO PLAY GUIDE</span><i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- End Recent Blog Posts Section -->
+  
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>About The AISL</h2>
+          <p>The AISL indoor season is comprised of competitive and recreational teams in four divisions competing across two or three sessions.</p>
+          <p>All games held at the Beckwith Recreation Complex in Beckwith, Ontario.</p>
+          <p>The league is an Ontario Soccer sanctionned league through the Carleton Place Soccer Club.</p>
+        </div>
+        <div class="section-header">
+          <h2>Sessions</h2>
+		  <p>Fall Session: September - January (15 games)</p>
+          <p>Spring Session: January - May (15 games)</p>
+        </div>
+		
+		    <!-- ======= Featured Services Section ======= -->
+    <section id="featured-services" class="featured-services">
+      <div class="container">
+
+        <div class="row gy-4">
+		
+		<h3 class="pt-0 pt-lg-5">Expected Divisional Game Nights and Kickoff Times</h3>
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out">
+            <div class="service-item position-relative">
+              <h4>Women's 30+</h4>
+              <p>Sunday Nights: 6-10pm</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <h4>Women's Open 18+</h4>
+              <p><strong>Competitive and Recreational tier</strong></p>
+              <p>Wednesday Nights: 6-11pm</p>
+              <p>10+ Teams: Tuesday Nights 9-11pm</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <h4>Co-ed Open 18+</h4>
+              <p><strong>Competitive and Recreational tier</strong></p>
+              <p>Thursday Nights: 6-11pm</p>
+              <p>8+ Teams: Tuesday Nights 9-11pm</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <h4>Men's OT 35+</h4>
+              <p><strong>Competitive and Recreational tier</strong></p>
+              <p>Friday Nights: 6:30-11:30pm</p>
+            </div>
+          </div><!-- End Service Item -->
+        </div>
+
+      </div>
+    </section><!-- End Featured Services Section -->
+
+  </main><!-- End #main -->
+
+{% endblock %}
