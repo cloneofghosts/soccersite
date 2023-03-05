@@ -1,0 +1,65 @@
+{% extends "soccersite/base.html" %}
+
+{% block head_title %}Login{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<section id="hero-animated" class="hero-animated d-flex align-items-center">
+    <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
+      <img src="{% static 'assets/img/hero-carousel/hero-carousel-3.svg' %}" class="img-fluid animated">
+      <h2>Adult Indoor Soccer League</span></h2>
+      <p>The official indoor soccer league of the Carleton Place Soccer Club in partnership with the Beckwith Recreation Department</p>
+    </div>
+  </section>
+
+  <main id="main">
+  
+      <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-header">
+          <h2>Login to LastEver</h2>
+        </div>
+
+      </div>
+
+      <div class="container">
+
+        <div class="row gy-5 gx-lg-5">
+
+          <div class="col-lg-4">
+
+            <div class="info">
+              <h3>Login</h3>
+              <p>Et id eius voluptates atque nihil voluptatem enim in tempore minima sit ad mollitia commodi minus.</p>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8">
+			<form action="." method="POST">
+				<div class="form-row form-group"> {{ form.username.errors }}{{ form.username.label_tag }}{{ form.username }} </div>
+				<div class="form-row form-group mt-3"> {{ form.password.errors }}{{ form.password.label_tag }}{{ form.password }} </div>
+				{% if form.get_user %}
+				<div class="form-row"> {{ form.otp_device.errors }}{{ form.otp_device.label_tag }}{{ form.otp_device }} </div>
+				{% endif %}
+				<div class="form-row form-group mt-3"> {{ form.otp_token.errors }}{{ form.otp_token.label_tag }}{{ form.otp_token }} </div>
+				<div class="submit-row form-group mt-3">
+					<input type="submit" value="Log in"/>
+					{% if form.get_user %}<input type="submit" name="otp_challenge" value="Get Challenge" />{% endif %}
+				</div>
+			</form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+{% endblock %}
