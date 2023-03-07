@@ -3,7 +3,7 @@ colorama==0.4.6
 Django==4.1.7
 django-autoslug==1.9.8
 django-environ==0.10.0
-django-otp==1.1.4
+django-otp==1.1.5
 django-recaptcha==3.0.0
 django-tinymce==3.5.0
 psycopg2==2.9.5
