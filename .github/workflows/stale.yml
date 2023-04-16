@@ -19,8 +19,8 @@ jobs:
         stale-pr-message: 'This pull request has been marked as stale since it has had no activity for the last 90 days. To prevent it from being closed please comment within the next 7 days.'
         close-issue-message: 'This issue was closed because it has been stalled for 7 days with no activity.'
         close-pr-message: 'This pull request was closed because it has been stalled for 7 days with no activity.'
-        stale-issue-label: 'no-issue-activity'
-        stale-pr-label: 'no-pr-activity'
+        stale-issue-label: 'stale'
+        stale-pr-label: 'stale'
         days-before-stale: 90
         days-before-close: 7
         enable-statistics: 'true'
