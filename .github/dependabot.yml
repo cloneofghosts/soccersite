@@ -12,3 +12,11 @@ updates:
     assignees:
       - "cloneofghosts"
     open-pull-requests-limit: 100
+    
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    assignees:
+      - "cloneofghosts"
+    open-pull-requests-limit: 100
