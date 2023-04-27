@@ -4,7 +4,7 @@ Django==4.2
 django-autoslug==1.9.9
 django-environ==0.10.0
 django-formtools==2.4
-django-phonenumber-field==7.0.2
+django-phonenumber-field==7.1.0
 django-recaptcha==3.0.0
 django-tinymce==3.6.1
 psycopg2==2.9.6
