@@ -1,4 +1,4 @@
-asgiref==3.7.1
+asgiref==3.7.2
 colorama==0.4.6
 Django==4.2.1
 django-autoslug==1.9.9
