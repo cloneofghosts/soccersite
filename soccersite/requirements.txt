@@ -11,5 +11,5 @@ psycopg2==2.9.6
 pypng==0.20220715.0
 qrcode==7.4.2
 sqlparse==0.4.4
-typing_extensions==4.6.2
+typing_extensions==4.6.3
 tzdata==2023.3
