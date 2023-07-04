@@ -29,6 +29,6 @@ jobs:
     steps:
       - uses: dessant/lock-threads@v4
         with:
-          issue-inactive-days: '120'
-          pr-inactive-days: '120'
+          issue-inactive-days: '30'
+          pr-inactive-days: '30'
           issue-lock-reason: ''
