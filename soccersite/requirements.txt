@@ -7,7 +7,7 @@ django-formtools==2.4.1
 django-phonenumber-field==7.1.0
 django-recaptcha==3.0.0
 django-tinymce==3.6.1
-psycopg2==2.9.6
+psycopg2==2.9.7
 pypng==0.20220715.0
 qrcode==7.4.2
 sqlparse==0.4.4
