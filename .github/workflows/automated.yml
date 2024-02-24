@@ -1,19 +1,19 @@
-name: CI
+name: auto-merge
+
+permissions:
+  contents: write # only for delete-branch option
+  issues: write
+  pull-requests: write
+
 on:
-  push:
-    branches:
-      - main
   pull_request:
 
 jobs:
-
-  automerge:
-    needs: build
+  auto-merge:
     runs-on: ubuntu-latest
-
-    permissions:
-      pull-requests: write
-      contents: write
-
     steps:
-      - uses: fastify/github-action-merge-dependabot@v3
+      - uses: actions/checkout@v4.1.1
+      - uses: ahmadnassri/action-dependabot-auto-merge@v2.6.6
+        with:
+          target: minor
+          github-token: ${{ secrets.GITHUB_TOKEN }}
