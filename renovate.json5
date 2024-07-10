@@ -1,0 +1,42 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  timezone: 'America/Toronto',
+  schedule: [
+    'before 5pm on friday',
+  ],
+  addLabels: [
+    'dependencies',
+  ],
+  rangeStrategy: 'bump',
+  extends: [
+    'config:best-practices',
+  ],
+  packageRules: [
+    {
+      matchUpdateTypes: [
+        'minor',
+        'patch',
+        'pin',
+        'digest',
+      ],
+      automerge: true,
+    },
+    {
+      matchCategories: [
+        'python',
+      ],
+      addLabels: [
+        'python',
+      ],
+    },
+    {
+      matchCategories: [
+        'github-actions',
+      ],
+      addLabels: [
+        'github-actions',
+      ],
+    },
+  ],
+  platformAutomerge: true,
+}
