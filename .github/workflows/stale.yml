@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/stale@v9.0.0
+    - uses: actions/stale@28ca1036281a5e5922ead5184a1bbf96e5fc984e # v9.0.0
       with:
         exempt-issue-assignees: 'cloneofghosts'
         exempt-pr-assignees: 'cloneofghosts'
@@ -27,7 +27,7 @@ jobs:
   lock:
     runs-on: ubuntu-latest
     steps:
-      - uses: dessant/lock-threads@v5.0.1
+      - uses: dessant/lock-threads@1bf7ec25051fe7c00bdd17e6a7cf3d7bfb7dc771 # v5.0.1
         with:
           issue-inactive-days: '30'
           pr-inactive-days: '30'
