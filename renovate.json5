@@ -34,7 +34,7 @@
         'github-actions',
       ],
       addLabels: [
-        'github-actions',
+        'github_actions',
       ],
     },
   ],
