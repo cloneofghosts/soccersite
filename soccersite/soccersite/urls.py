@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path
 from two_factor.admin import AdminSiteOTPRequired
@@ -22,14 +23,14 @@ from django.urls import re_path
 from two_factor.urls import urlpatterns as tf_urls
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-	path('tinymce/', include('tinymce.urls')),
-	path('', include('lastever.urls')),
-	path('', include(tf_urls)),
+    path("admin/", admin.site.urls),
+    path("tinymce/", include("tinymce.urls")),
+    path("", include("lastever.urls")),
+    path("", include(tf_urls)),
 ]
 
 urlpatterns += [
-    re_path(r'^(?P<url>.*/)$', views.flatpage),
+    re_path(r"^(?P<url>.*/)$", views.flatpage),
 ]
 
 admin.site.__class__ = AdminSiteOTPRequired
