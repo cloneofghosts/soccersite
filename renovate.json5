@@ -23,7 +23,7 @@
     },
     {
       matchCategories: [
-        'python',
+        'pip_requirements',
       ],
       addLabels: [
         'python',
