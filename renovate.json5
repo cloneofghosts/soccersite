@@ -10,6 +10,7 @@
   rangeStrategy: 'bump',
   extends: [
     'config:best-practices',
+    'group:recommended',
   ],
   packageRules: [
     {
